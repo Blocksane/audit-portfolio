@@ -1,0 +1,18 @@
+# Day 3 — SimpleBank Contract
+
+## What I Built
+- SimpleBank — deposit, getBalance, withdraw
+
+## What I Learned
+- `payable` keyword lets a function receive ETH
+- `msg.value` = amount of ETH sent with transaction
+- `require()` = security check before executing logic
+- `+=` adds to existing value, `-=` deducts from it
+- `payable(msg.sender).transfer(amount)` sends ETH out
+- Checks-Effects-Interactions pattern — update state BEFORE sending ETH
+
+## Security Insight
+- Reentrancy attack: if you send ETH before updating balance, attacker can call withdraw repeatedly and drain the contract
+
+## Contract Built
+- `contracts/simplebank.sol`
